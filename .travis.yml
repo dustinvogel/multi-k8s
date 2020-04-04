@@ -20,7 +20,7 @@ before_install:
   - docker build -t dustinvogel/multi-cluster-tests -f ./client/Docvkerfile.dev ./client
 
   script:
-    - docker run dustinvogel/multi-cluster-tests npm test -- --coverage
+    - docker run -e CI=true dustinvogel/multi-cluster-tests npm run test
 
   deploy:
     provider: script
